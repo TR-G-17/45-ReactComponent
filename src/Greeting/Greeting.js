@@ -8,9 +8,14 @@ const styles = {
 
 class Greeting extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+        // this.hello = 'Privet';
+        this.state = {
+            greet: 'Hello',
+            isDone: false
+        }
+    }
 
     renderChildren() {
         return (
@@ -18,16 +23,39 @@ class Greeting extends React.Component {
         )
     }
 
+    handleBye = (event) => {
+        event.preventDefault();
+        // this.changeState()
+        // this.changeAbra()
+
+
+        // this.state.greet = 'Ups...';
+        this.setState({isDone: true,greet: 'Bye'})
+    }
+
+    // changeAbra = () => {
+    //     this.hello = 'Abracadabra'
+    // }
+    //
+    // changeState = () => {
+    //     this.setState({isDone: true,greet: 'Bye'})
+    // }
+
+    renderButton() {
+        return (this.state.isDone ? null : <button onClick={this.handleBye}>Bye</button>)
+    }
+
 
     render() {
         return (
             <div>
-                <h1 className="greeting-h1" style={styles}>Hello, {this.props.name}!</h1>
+                {/*{ this.hello }*/}
+                <h1 className="greeting-h1" style={styles}>{this.state.greet}, {this.props.name}!</h1>
+                { this.renderButton() }
                 { this.renderChildren() }
             </div>
 
         )
-
     }
 }
 
