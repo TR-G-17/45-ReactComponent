@@ -1,0 +1,7 @@
+.greeting-h1 {
+    font-size: 18px;
+}
+
+.greeting-h1:hover {
+     color: green !important;
+ }
